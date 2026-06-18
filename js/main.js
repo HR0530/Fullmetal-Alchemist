@@ -16,12 +16,8 @@ let selected = [];
 function renderItems() {
   ITEMS.forEach(item => {
     const el = document.createElement("div");
-
     el.className = "item";
     el.dataset.id = item.id;
-
-    el.style.left = item.x + "%";
-    el.style.top = item.y + "%";
 
     el.innerHTML = `
       <div class="emoji">${item.emoji}</div>
@@ -120,45 +116,63 @@ function alchemy() {
     showResult({
       title: "材料がありません",
       visual: "？",
-      text: "錬成陣の中央にアイテムを入れてください。",
+      text: "錬成陣にアイテムを入れてください。",
       type: "fail"
     });
-
     return;
   }
 
   const recipe = findRecipe();
 
   if (!recipe) {
-    showResult({
-      title: "錬成失敗",
-      visual: "💨",
-      text: "材料の組み合わせが違うようです。",
-      type: "fail"
+    playTransmutationEffect(() => {
+      showResult({
+        title: "錬成失敗",
+        visual: "💨",
+        text: "材料の組み合わせが違うようです。",
+        type: "fail"
+      });
     });
-
     return;
   }
 
   if (recipe.type === "cake") {
     playCakeAnimation(recipe, showResult);
   } else {
-    showResult(recipe);
+    playTransmutationEffect(() => {
+      showResult(recipe);
+    });
   }
+}
+
+function playTransmutationEffect(callback) {
+  const effectLayer = document.getElementById("effectLayer");
+  const circle = document.getElementById("alchemyCircle");
+
+  effectLayer.classList.remove("hidden");
+  circle.classList.add("glow");
+
+  setTimeout(() => {
+    effectLayer.classList.add("hidden");
+    circle.classList.remove("glow");
+    callback();
+  }, 1300);
 }
 
 function showResult(recipe) {
   resultTitle.textContent = recipe.title;
   resultText.textContent = recipe.text;
-  if (recipe.image) {
-  resultVisual.innerHTML = `
-    <img src="${recipe.image}" class="result-image">
-  `;
-} else {
-  resultVisual.textContent = recipe.visual;
-}
 
   resultVisual.className = "result-visual";
+  resultVisual.innerHTML = "";
+
+  if (recipe.image) {
+    resultVisual.innerHTML = `
+      <img src="${recipe.image}" class="result-image">
+    `;
+  } else {
+    resultVisual.textContent = recipe.visual;
+  }
 
   if (recipe.type === "fail") {
     resultVisual.classList.add("shake");
@@ -208,7 +222,6 @@ function showToast(message) {
 }
 
 alchemyBtn.addEventListener("click", alchemy);
-
 resetBtn.addEventListener("click", resetSelected);
 
 closeModal.addEventListener("click", () => {
