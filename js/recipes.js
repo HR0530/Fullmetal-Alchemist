@@ -260,14 +260,14 @@ const RECIPES = [
   },
 
   {
-    id: "ethics_stop",
-    title: "錬成中止",
-    required: [
-      "dog",
-      "girl_photo"
-    ],
-    visual: "⚠️",
-    text: "倫理審査により中止されました。",
-    type: "fail"
-  }
+  id: "chimera",
+  title: "？？？",
+  required: [
+    "dog",
+    "girl_photo"
+  ],
+  image: "assets/results/chimera.png",
+  text: "何かが出来上がった。しかし、それは作るべきものではなかった。",
+  type: "fail"
+}
 ];
