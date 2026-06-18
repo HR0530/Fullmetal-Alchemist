@@ -12,13 +12,13 @@ const resultVisual = document.getElementById("resultVisual");
 const letterBtn = document.getElementById("letterBtn");
 
 let selected = [];
+let holdingItemId = null;
 
 function renderItems() {
   ITEMS.forEach(item => {
     const el = document.createElement("div");
 
     el.className = "item";
-    el.draggable = true;
     el.dataset.id = item.id;
 
     el.style.left = item.x + "%";
@@ -29,32 +29,43 @@ function renderItems() {
       <span>${item.name}</span>
     `;
 
-    el.addEventListener("dragstart", event => {
-      event.dataTransfer.setData("text/plain", item.id);
-    });
-
     el.addEventListener("click", () => {
-      addItem(item.id);
+      holdItem(item.id);
     });
 
     itemLayer.appendChild(el);
   });
 }
 
-dropZone.addEventListener("dragover", event => {
-  event.preventDefault();
+function holdItem(id) {
+  holdingItemId = id;
+
+  document.querySelectorAll(".item").forEach(el => {
+    el.classList.remove("holding");
+  });
+
+  const target = document.querySelector(`.item[data-id="${id}"]`);
+  if (target) {
+    target.classList.add("holding");
+  }
+
+  const item = ITEMS.find(item => item.id === id);
+  showToast(`${item.name}を持ちました`);
+}
+
+dropZone.addEventListener("click", () => {
+  if (!holdingItemId) {
+    showToast("先にアイテムを選んでください");
+    return;
+  }
+
+  addItemToCircle(holdingItemId);
 });
 
-dropZone.addEventListener("drop", event => {
-  event.preventDefault();
-
-  const id = event.dataTransfer.getData("text/plain");
-
-  addItem(id);
-});
-
-function addItem(id) {
+function addItemToCircle(id) {
   if (selected.includes(id)) {
+    const item = ITEMS.find(item => item.id === id);
+    showToast(`${item.name}はすでに入っています`);
     return;
   }
 
@@ -66,6 +77,16 @@ function addItem(id) {
 
   selected.push(id);
   updateSelected();
+
+  showToast(`${item.name}が入りました`);
+
+  const target = document.querySelector(`.item[data-id="${id}"]`);
+  if (target) {
+    target.classList.add("used");
+    target.classList.remove("holding");
+  }
+
+  holdingItemId = null;
 }
 
 function updateSelected() {
@@ -80,7 +101,14 @@ function updateSelected() {
 
     chip.addEventListener("click", () => {
       selected = selected.filter(selectedId => selectedId !== id);
+
+      const target = document.querySelector(`.item[data-id="${id}"]`);
+      if (target) {
+        target.classList.remove("used");
+      }
+
       updateSelected();
+      showToast(`${item.name}を取り出しました`);
     });
 
     selectedList.appendChild(chip);
@@ -157,7 +185,33 @@ function showResult(recipe) {
 
 function resetSelected() {
   selected = [];
+  holdingItemId = null;
+
+  document.querySelectorAll(".item").forEach(el => {
+    el.classList.remove("used");
+    el.classList.remove("holding");
+  });
+
   updateSelected();
+  showToast("リセットしました");
+}
+
+function showToast(message) {
+  let toast = document.getElementById("toast");
+
+  if (!toast) {
+    toast = document.createElement("div");
+    toast.id = "toast";
+    toast.className = "toast";
+    document.body.appendChild(toast);
+  }
+
+  toast.textContent = message;
+  toast.classList.add("show");
+
+  setTimeout(() => {
+    toast.classList.remove("show");
+  }, 1200);
 }
 
 alchemyBtn.addEventListener("click", alchemy);
