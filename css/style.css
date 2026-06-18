@@ -89,7 +89,7 @@ body {
   left: 50%;
 
   /* ←ここを変更すると上下移動 */
-  top: 39%;
+  top: 43%;
 
   transform: translate(-50%, -50%);
 
