@@ -196,6 +196,7 @@ const ITEMS = [
 ];
 
 const RECIPES = [
+
   {
     id: "birthday_cake",
     title: "誕生日ケーキ",
@@ -206,7 +207,7 @@ const RECIPES = [
       "sugar",
       "strawberry"
     ],
-    visual: "🎂",
+    image: "assets/results/birthday_cake.png",
     text: "錬成成功。ろうそくに火が灯り、文字が浮かび上がる……",
     type: "cake"
   },
@@ -228,8 +229,8 @@ const RECIPES = [
       "cpu",
       "elements"
     ],
-    visual: "🚪",
-    text: "禁忌に触れました。新しいレシピ「真理の扉」が追加されました。",
+    image: "assets/results/truth_gate.png",
+    text: "禁忌に触れました。真理の扉が現れた。",
     type: "fail"
   },
 
@@ -241,7 +242,7 @@ const RECIPES = [
       "gear",
       "metal"
     ],
-    visual: "🦾",
+    image: "assets/results/automail_arm.png",
     text: "金属音とともに、機械鎧の腕が錬成された。",
     type: "normal"
   },
@@ -254,10 +255,24 @@ const RECIPES = [
       "redstone2",
       "redstone3"
     ],
-    visual: "💎",
+    image: "assets/results/fake_stone.png",
     text: "鑑定結果：模造品。本物ではないようだ。",
     type: "normal"
   },
+
+  {
+    id: "chimera",
+    title: "？？？",
+    required: [
+      "dog",
+      "girl_photo"
+    ],
+    image: "assets/results/chimera.png",
+    text: "何かが出来上がった。しかし、それは作るべきものではなかった。",
+    type: "fail"
+  }
+
+];
 
   {
   id: "chimera",
