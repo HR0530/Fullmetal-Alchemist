@@ -24,7 +24,7 @@ body {
   overflow: hidden;
 }
 
-/* 上 */
+/* 上部 */
 .top-ui {
   position: absolute;
   z-index: 20;
@@ -55,7 +55,7 @@ body {
   border: 2px solid #c6a46e;
   border-radius: 12px;
   color: #f4ead7;
-  background: rgba(8, 6, 4, .82);
+  background: rgba(8,6,4,.82);
   font-size: 22px;
   font-family: inherit;
 }
@@ -78,18 +78,18 @@ body {
   left: 50%;
   top: 36%;
   transform: translate(-50%, -50%);
-  border: 3px solid rgba(235, 217, 170, .78);
+  border: 3px solid rgba(235,217,170,.78);
   border-radius: 50%;
   box-shadow:
-    0 0 30px rgba(224, 194, 122, .25),
-    inset 0 0 35px rgba(224, 194, 122, .14);
+    0 0 30px rgba(224,194,122,.25),
+    inset 0 0 35px rgba(224,194,122,.14);
 }
 
 .alchemy-circle::before,
 .alchemy-circle::after {
   content: "";
   position: absolute;
-  border: 1px solid rgba(235, 217, 170, .55);
+  border: 1px solid rgba(235,217,170,.55);
   border-radius: 50%;
 }
 
@@ -127,7 +127,7 @@ body {
   100% { box-shadow: 0 0 0 rgba(255,230,160,0); }
 }
 
-/* 下 */
+/* 下部 */
 .bottom-ui {
   position: absolute;
   z-index: 30;
@@ -272,7 +272,7 @@ body {
   font-family: inherit;
 }
 
-/* 結果 */
+/* 結果モーダル */
 .modal {
   position: fixed;
   inset: 0;
@@ -290,7 +290,7 @@ body {
 .modal-card {
   position: relative;
   width: min(92vw, 390px);
-  min-height: 400px;
+  min-height: 430px;
   background: linear-gradient(#20160f, #080605);
   border: 2px solid #b99b67;
   box-shadow: 0 0 40px rgba(214,174,80,.28);
@@ -314,18 +314,21 @@ body {
 }
 
 .result-visual {
-  min-height: 130px;
+  min-height: 280px;
   display: grid;
   place-items: center;
-  font-size: 76px;
   margin: 10px 0;
 }
 
 .result-image {
   width: 100%;
-  max-width: 260px;
-  max-height: 260px;
+  max-width: 300px;
+  max-height: 300px;
   object-fit: contain;
+  border-radius: 12px;
+  box-shadow:
+    0 0 20px rgba(255,255,255,.15),
+    0 0 40px rgba(255,215,120,.15);
 }
 
 .shake {
@@ -444,18 +447,7 @@ body {
   white-space: nowrap;
 }
 
-
-
 .toast.show {
   opacity: 1;
   transform: translateX(-50%) translateY(0);
-}
-
-.result-image {
-  width: 100%;
-  max-width: 260px;
-  max-height: 260px;
-  object-fit: contain;
-  border-radius: 12px;
-  box-shadow: 0 0 20px rgba(255,255,255,.15);
 }
