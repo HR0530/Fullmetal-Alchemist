@@ -77,10 +77,10 @@ body {
 
 .alchemy-circle {
   position: absolute;
-  width: min(76vw, 310px);
-  height: min(76vw, 310px);
+  width: min(72vw, 295px);
+  height: min(72vw, 295px);
   left: 50%;
-  top: 33%;
+  top: 31.5%;
   transform: translate(-50%, -50%);
   border: 3px solid rgba(235,217,170,.82);
   border-radius: 50%;
@@ -178,20 +178,20 @@ body {
 
 /* アイテム棚 */
 .item-layer {
-  height: 128px;
-  padding: 10px;
+  height: 160px;
+  padding: 12px;
   border: 1px solid rgba(220,190,130,.58);
   background: rgba(0,0,0,.74);
-  border-radius: 11px;
+  border-radius: 12px;
   display: grid;
   grid-auto-flow: column;
-  grid-template-rows: repeat(2, 54px);
-  grid-auto-columns: 82px;
-  gap: 10px 12px;
+  grid-template-rows: repeat(2, 68px);
+  grid-auto-columns: 88px;
+  gap: 12px;
   overflow-x: auto;
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
-  backdrop-filter: blur(3px);
+  backdrop-filter: blur(4px);
 }
 
 .item-layer::-webkit-scrollbar {
@@ -199,7 +199,7 @@ body {
 }
 
 .item-layer::-webkit-scrollbar-thumb {
-  background: rgba(198,164,110,.65);
+  background: rgba(198,164,110,.7);
   border-radius: 999px;
 }
 
@@ -207,9 +207,9 @@ body {
   position: relative;
   left: auto !important;
   top: auto !important;
-  width: 82px;
-  min-width: 82px;
-  height: 54px;
+  width: 88px;
+  min-width: 88px;
+  height: 68px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -219,25 +219,36 @@ body {
 }
 
 .item-image {
-  width: 38px;
-  height: 38px;
+  width: 42px;
+  height: 42px;
   object-fit: contain;
+  flex-shrink: 0;
   pointer-events: none;
-  filter: drop-shadow(0 3px 5px rgba(0,0,0,.75));
+  filter:
+    drop-shadow(0 2px 3px rgba(0,0,0,.8))
+    drop-shadow(0 0 4px rgba(255,255,255,.08));
+  transition: .2s;
 }
 
 .item span {
   display: block;
-  width: 78px;
-  margin-top: 3px;
-  padding: 1px 3px;
-  font-size: 10px;
-  line-height: 1.2;
+  width: 84px;
+  min-height: 20px;
+  margin-top: 4px;
+  padding: 2px;
   text-align: center;
+  font-size: 10px;
+  line-height: 1.15;
   color: #f4ead7;
-  background: rgba(0,0,0,.76);
+  background: rgba(0,0,0,.72);
   border: 1px solid rgba(220,190,130,.45);
+  border-radius: 4px;
   white-space: normal;
+  word-break: keep-all;
+}
+
+.item:hover .item-image {
+  transform: scale(1.08);
 }
 
 .item.absorbing {
@@ -520,36 +531,36 @@ body {
 /* 小さいスマホ用 */
 @media (max-height: 760px) {
   .alchemy-circle {
-    width: min(72vw, 285px);
-    height: min(72vw, 285px);
-    top: 31%;
+    width: min(68vw, 270px);
+    height: min(68vw, 270px);
+    top: 29%;
   }
 
   .selected-list {
     min-height: 34px;
-    max-height: 42px;
+    max-height: 40px;
   }
 
   .item-layer {
-    height: 116px;
-    grid-template-rows: repeat(2, 49px);
-    grid-auto-columns: 76px;
+    height: 145px;
+    grid-template-rows: repeat(2, 62px);
+    grid-auto-columns: 80px;
     gap: 8px 10px;
   }
 
   .item {
-    width: 76px;
-    min-width: 76px;
-    height: 49px;
+    width: 80px;
+    min-width: 80px;
+    height: 62px;
   }
 
   .item-image {
-    width: 34px;
-    height: 34px;
+    width: 36px;
+    height: 36px;
   }
 
   .item span {
-    width: 72px;
+    width: 76px;
     font-size: 9px;
   }
 
