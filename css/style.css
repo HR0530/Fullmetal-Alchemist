@@ -88,7 +88,7 @@ body {
   height: min(72vw, 295px);
 
   left: 50%;
-  top: 43%;
+  top: 30%;
 
   transform: translate(-50%, -50%);
 
@@ -113,14 +113,14 @@ body {
   width: 72%;
   height: 72%;
   left: 14%;
-  top: 18%;
+  top: 25%;
 }
 
 .alchemy-circle::after {
   width: 38%;
   height: 38%;
   left: 31%;
-  top: 37%;
+  top: 44%;
 }
 
 /* アイテム投入エリア */
@@ -131,7 +131,7 @@ body {
   height: 42%;
 
   left: 50%;
-  top: 56%;
+  top: 61%;
 
   transform: translate(-50%, -50%);
 
