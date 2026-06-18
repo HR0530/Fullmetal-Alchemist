@@ -80,7 +80,7 @@ body {
   width: min(72vw, 295px);
   height: min(72vw, 295px);
   left: 50%;
-  top: 31.5%;
+  top: 35%;
   transform: translate(-50%, -50%);
   border: 3px solid rgba(235,217,170,.82);
   border-radius: 50%;
