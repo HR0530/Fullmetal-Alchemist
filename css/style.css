@@ -75,13 +75,11 @@ body {
 ========================= */
 
 .alchemy-circle {
-  position: absolute;
-
-  width: min(60vw, 270px);
-  height: min(60vw, 270px);
+  width: min(54vw, 230px);
+  height: min(54vw, 230px);
 
   left: 50%;
-  top: 51%;
+  top: 60%;
 
   transform: translate(-50%, -50%);
 
