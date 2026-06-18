@@ -388,6 +388,13 @@ body {
   white-space: nowrap;
 }
 
+.result-image {
+  width: 100%;
+  max-width: 260px;
+  max-height: 260px;
+  object-fit: contain;
+}
+
 .toast.show {
   opacity: 1;
   transform: translateX(-50%) translateY(0);
