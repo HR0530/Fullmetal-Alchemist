@@ -78,8 +78,8 @@ body {
   position: absolute;
 
   /* 少し小さく */
-  width: min(68vw, 280px);
-  height: min(68vw, 280px);
+  width: min(64vw, 260px);
+  height: min(64vw, 260px);
 
   left: 50%;
   top: 48%;
