@@ -80,7 +80,7 @@ body {
   width: min(72vw, 295px);
   height: min(72vw, 295px);
   left: 50%;
-  top: 35%;
+  top: 31.5%;
   transform: translate(-50%, -50%);
   border: 3px solid rgba(235,217,170,.82);
   border-radius: 50%;
@@ -110,7 +110,7 @@ body {
   width: 42%;
   height: 42%;
   left: 50%;
-  top: 50%;
+  top: 55%;
   transform: translate(-50%, -50%);
   border: 1px dashed rgba(255,255,255,.28);
   border-radius: 50%;
