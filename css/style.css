@@ -80,6 +80,7 @@ body {
 }
 
 /* 魔方陣本体 */
+/* 魔方陣本体 */
 .alchemy-circle {
   position: absolute;
 
@@ -87,8 +88,6 @@ body {
   height: min(72vw, 295px);
 
   left: 50%;
-
-  /* ←ここを変更すると上下移動 */
   top: 43%;
 
   transform: translate(-50%, -50%);
@@ -111,11 +110,17 @@ body {
 }
 
 .alchemy-circle::before {
-  inset: 14%;
+  width: 72%;
+  height: 72%;
+  left: 14%;
+  top: 18%;
 }
 
 .alchemy-circle::after {
-  inset: 31%;
+  width: 38%;
+  height: 38%;
+  left: 31%;
+  top: 37%;
 }
 
 /* アイテム投入エリア */
@@ -126,7 +131,7 @@ body {
   height: 42%;
 
   left: 50%;
-  top: 44%;
+  top: 56%;
 
   transform: translate(-50%, -50%);
 
@@ -137,7 +142,6 @@ body {
   place-items: center;
 
   color: rgba(255,255,255,.58);
-
   background: rgba(0,0,0,.25);
 
   text-align: center;
