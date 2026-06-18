@@ -71,24 +71,18 @@ body {
 
 /* 魔方陣 */
 /* =========================
-   魔方陣エリア
+   魔方陣
 ========================= */
 
-.room {
-  position: absolute;
-  inset: 0;
-}
-
-/* 魔方陣本体 */
-/* 魔方陣本体 */
 .alchemy-circle {
   position: absolute;
 
-  width: min(72vw, 295px);
-  height: min(72vw, 295px);
+  /* 少し小さく */
+  width: min(68vw, 280px);
+  height: min(68vw, 280px);
 
   left: 50%;
-  top: 30%;
+  top: 48%;
 
   transform: translate(-50%, -50%);
 
@@ -100,47 +94,26 @@ body {
     inset 0 0 35px rgba(224,194,122,.16);
 }
 
-/* =========================
-   内側の円
-========================= */
-
+/* 中円 */
 .alchemy-circle::before,
 .alchemy-circle::after {
   content: "";
   position: absolute;
   border-radius: 50%;
   border: 1px solid rgba(235,217,170,.58);
-  transition: .3s;
 }
 
-/* 中円 */
+/* 真ん中基準 */
 .alchemy-circle::before {
-  width: 72%;
-  height: 72%;
-
-  left: 14%;
-  top: 22%;
-
-  box-shadow:
-    inset 0 0 12px rgba(235,217,170,.12);
+  inset: 14%;
 }
 
 /* 小円 */
 .alchemy-circle::after {
-  width: 38%;
-  height: 38%;
-
-  left: 31%;
-  top: 41%;
-
-  box-shadow:
-    inset 0 0 10px rgba(235,217,170,.10);
+  inset: 31%;
 }
 
-/* =========================
-   アイテム投入エリア
-========================= */
-
+/* 投入エリア */
 .drop-zone {
   position: absolute;
 
@@ -148,52 +121,24 @@ body {
   height: 42%;
 
   left: 50%;
-
-  /* ←ここが投入位置 */
-  top: 58%;
+  top: 50%;
 
   transform: translate(-50%, -50%);
 
   border: 1px dashed rgba(255,255,255,.28);
   border-radius: 50%;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  place-items: center;
+
+  color: rgba(255,255,255,.7);
+
+  background: rgba(0,0,0,.25);
 
   text-align: center;
+  font-size: 15px;
 
-  color: rgba(255,255,255,.68);
-
-  background:
-    radial-gradient(
-      circle,
-      rgba(255,255,255,.04),
-      rgba(0,0,0,.28)
-    );
-
-  font-size: 13px;
-  line-height: 1.4;
-
-  backdrop-filter: blur(2px);
-
-  transition:
-    box-shadow .3s,
-    background .3s,
-    transform .3s;
-}
-
-.drop-zone.flash {
-  box-shadow:
-    0 0 18px rgba(255,230,160,.9),
-    0 0 40px rgba(255,230,160,.45);
-
-  background:
-    radial-gradient(
-      circle,
-      rgba(255,245,200,.12),
-      rgba(0,0,0,.28)
-    );
+  transition: .3s;
 }
 /* アイテム投入時 */
 .drop-zone.flash {
