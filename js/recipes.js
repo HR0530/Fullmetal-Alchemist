@@ -1,202 +1,136 @@
 const ITEMS = [
-  // =====================
-  // 正解：ケーキ材料
-  // =====================
   {
     id: "milk",
     name: "牛乳",
-    emoji: "🥛",
-    x: 72,
-    y: 55
+    emoji: "🥛"
   },
   {
     id: "wheat",
     name: "小麦",
-    emoji: "🌾",
-    x: 50,
-    y: 78
+    emoji: "🌾"
   },
   {
     id: "egg",
     name: "卵",
-    emoji: "🥚",
-    x: 82,
-    y: 72
+    emoji: "🥚"
   },
   {
     id: "sugar",
     name: "砂糖",
-    emoji: "🧂",
-    x: 76,
-    y: 35
+    emoji: "🧂"
   },
   {
     id: "strawberry",
     name: "イチゴ",
-    emoji: "🍓",
-    x: 84,
-    y: 45
+    emoji: "🍓"
   },
 
-  // =====================
-  // 人体錬成ネタ
-  // =====================
   {
     id: "water",
     name: "コップの水",
-    emoji: "💧",
-    x: 7,
-    y: 35
+    emoji: "💧"
   },
   {
     id: "pencil",
     name: "えんぴつ",
-    emoji: "✏️",
-    x: 25,
-    y: 23
+    emoji: "✏️"
   },
   {
     id: "detergent",
     name: "洗剤",
-    emoji: "🧴",
-    x: 47,
-    y: 25
+    emoji: "🧴"
   },
   {
     id: "chalk",
     name: "チョーク",
-    emoji: "▭",
-    x: 63,
-    y: 25
+    emoji: "▭"
   },
   {
     id: "match",
     name: "マッチ",
-    emoji: "🔥",
-    x: 80,
-    y: 25
+    emoji: "🔥"
   },
   {
     id: "salt",
     name: "塩",
-    emoji: "🧂",
-    x: 90,
-    y: 35
+    emoji: "🧂"
   },
   {
     id: "firework",
     name: "花火",
-    emoji: "🎆",
-    x: 8,
-    y: 50
+    emoji: "🎆"
   },
   {
     id: "bath",
     name: "温泉の素",
-    emoji: "♨️",
-    x: 9,
-    y: 63
+    emoji: "♨️"
   },
   {
     id: "toothpaste",
     name: "歯磨き粉",
-    emoji: "🪥",
-    x: 9,
-    y: 74
+    emoji: "🪥"
   },
   {
     id: "nail",
     name: "釘",
-    emoji: "🔩",
-    x: 10,
-    y: 84
+    emoji: "🔩"
   },
   {
     id: "cpu",
     name: "CPU",
-    emoji: "💾",
-    x: 88,
-    y: 52
+    emoji: "💾"
   },
   {
     id: "elements",
     name: "少量元素",
-    emoji: "🪙",
-    x: 88,
-    y: 63
+    emoji: "🪙"
   },
 
-  // =====================
-  // 犬＋少女ネタ
-  // =====================
   {
     id: "dog",
     name: "犬のぬいぐるみ",
-    emoji: "🧸",
-    x: 25,
-    y: 68
+    emoji: "🧸"
   },
   {
     id: "girl_photo",
     name: "少女の写真",
-    emoji: "🖼️",
-    x: 43,
-    y: 68
+    emoji: "🖼️"
   },
 
-  // =====================
-  // オートメイル
-  // =====================
   {
     id: "screw",
     name: "ネジ",
-    emoji: "🔩",
-    x: 57,
-    y: 68
+    emoji: "🔩"
   },
   {
     id: "gear",
     name: "歯車",
-    emoji: "⚙️",
-    x: 68,
-    y: 68
+    emoji: "⚙️"
   },
   {
     id: "metal",
     name: "金属板",
-    emoji: "◼️",
-    x: 78,
-    y: 68
+    emoji: "◼️"
   },
 
-  // =====================
-  // 賢者の石
-  // =====================
   {
     id: "redstone1",
     name: "赤い石",
-    emoji: "💎",
-    x: 84,
-    y: 82
+    emoji: "💎"
   },
   {
     id: "redstone2",
     name: "赤い石",
-    emoji: "💎",
-    x: 91,
-    y: 82
+    emoji: "💎"
   },
   {
     id: "redstone3",
     name: "赤い石",
-    emoji: "💎",
-    x: 88,
-    y: 75
+    emoji: "💎"
   }
 ];
 
 const RECIPES = [
-
   {
     id: "birthday_cake",
     title: "誕生日ケーキ",
@@ -271,18 +205,4 @@ const RECIPES = [
     text: "何かが出来上がった。しかし、それは作るべきものではなかった。",
     type: "fail"
   }
-
-];
-
-  {
-  id: "chimera",
-  title: "？？？",
-  required: [
-    "dog",
-    "girl_photo"
-  ],
-  image: "assets/results/chimera.png",
-  text: "何かが出来上がった。しかし、それは作るべきものではなかった。",
-  type: "fail"
-}
 ];
