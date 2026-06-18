@@ -373,30 +373,36 @@ resultModal.classList.remove(
 リセット
 -------------------- */
 
-function resetSelected() {
+function renderItems() {
 
-selected = [];
+  itemLayer.innerHTML = "";
 
-document
-.querySelectorAll(".item")
-.forEach(el => {
+  ITEMS.forEach(item => {
 
-```
-  el.classList.remove("used");
-  el.classList.remove(
-    "absorbing"
-  );
+    const el = document.createElement("div");
 
-});
-```
+    el.className = "item";
+    el.dataset.id = item.id;
 
-updateSelected();
+    el.innerHTML = `
+      <img
+        src="${item.image}"
+        class="item-image"
+        alt="${item.name}"
+      >
 
-showToast(
-"リセットしました"
-);
+      <span>${item.name}</span>
+    `;
+
+    el.addEventListener("click", () => {
+      absorbItem(item.id, el);
+    });
+
+    itemLayer.appendChild(el);
+
+  });
+
 }
-
 /* --------------------
 トースト
 -------------------- */
