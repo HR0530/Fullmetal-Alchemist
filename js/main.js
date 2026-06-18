@@ -150,7 +150,13 @@ function alchemy() {
 function showResult(recipe) {
   resultTitle.textContent = recipe.title;
   resultText.textContent = recipe.text;
+  if (recipe.image) {
+  resultVisual.innerHTML = `
+    <img src="${recipe.image}" class="result-image">
+  `;
+} else {
   resultVisual.textContent = recipe.visual;
+}
 
   resultVisual.className = "result-visual";
 
