@@ -194,50 +194,43 @@ body {
   backdrop-filter: blur(3px);
 }
 
-.item-layer::-webkit-scrollbar {
-  height: 4px;
-}
+.item-layer {
+  height: 150px;
+  padding: 10px 8px;
+  border: 1px solid rgba(220,190,130,.58);
+  background: rgba(0,0,0,.74);
+  border-radius: 11px;
 
-.item-layer::-webkit-scrollbar-thumb {
-  background: rgba(198,164,110,.65);
-  border-radius: 999px;
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(2, 64px);
+  grid-auto-columns: 66px;
+  gap: 8px 10px;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
 }
 
 .item {
-  position: relative;
-  left: auto !important;
-  top: auto !important;
   width: 66px;
   min-width: 66px;
-  height: 50px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  cursor: pointer;
-  user-select: none;
+  height: 64px;
 }
 
 .item-image {
-  width: 38px;
-  height: 38px;
+  width: 40px;
+  height: 40px;
   object-fit: contain;
   pointer-events: none;
-  filter: drop-shadow(0 3px 5px rgba(0,0,0,.75));
 }
 
 .item span {
-  display: block;
   width: 64px;
-  margin-top: 2px;
+  margin-top: 3px;
   padding: 1px 3px;
   font-size: 9px;
   line-height: 1.15;
-  text-align: center;
-  color: #f4ead7;
-  background: rgba(0,0,0,.76);
-  border: 1px solid rgba(220,190,130,.45);
-  white-space: normal;
 }
 
 .item.absorbing {
@@ -307,16 +300,28 @@ body {
 }
 
 .modal-card {
-  position: relative;
-  width: min(92vw, 390px);
-  min-height: 430px;
-  max-height: 92dvh;
-  overflow-y: auto;
-  background: linear-gradient(#20160f, #080605);
-  border: 2px solid #b99b67;
-  box-shadow: 0 0 40px rgba(214,174,80,.28);
-  padding: 24px 16px;
-  text-align: center;
+  width: min(94vw, 410px);
+  min-height: 520px;
+  max-height: 94dvh;
+}
+
+.result-visual {
+  min-height: 350px;
+  display: grid;
+  place-items: center;
+  margin: 12px 0;
+  font-size: 100px;
+}
+
+.result-image {
+  width: 100%;
+  max-width: 360px;
+  max-height: 360px;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow:
+    0 0 24px rgba(255,255,255,.18),
+    0 0 48px rgba(255,215,120,.18);
 }
 
 .close-btn {
@@ -335,24 +340,6 @@ body {
   margin: 0 0 8px;
 }
 
-.result-visual {
-  min-height: 250px;
-  display: grid;
-  place-items: center;
-  margin: 10px 0;
-  font-size: 74px;
-}
-
-.result-image {
-  width: 100%;
-  max-width: 300px;
-  max-height: 300px;
-  object-fit: contain;
-  border-radius: 12px;
-  box-shadow:
-    0 0 20px rgba(255,255,255,.15),
-    0 0 40px rgba(255,215,120,.15);
-}
 
 .shake {
   animation: shake .45s linear infinite;
