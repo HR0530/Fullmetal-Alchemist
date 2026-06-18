@@ -14,30 +14,28 @@
       <button class="icon-btn">☰<span>メニュー</span></button>
 
       <div class="title-box">
-        アイテムを錬成陣の中央に<br>
-        ドラッグしてみよう
+        アイテムを選ぶと<br>
+        錬成陣に吸い込まれる
       </div>
 
       <button class="icon-btn">？<span>ヒント</span></button>
     </header>
 
     <section class="room">
-
       <div class="alchemy-circle" id="alchemyCircle">
         <div class="drop-zone" id="dropZone">
-          <p id="dropText">ここに置く</p>
+          <p id="dropText">ここに集まる</p>
         </div>
       </div>
-
-      <div class="item-layer" id="itemLayer"></div>
-
     </section>
 
     <section class="bottom-ui">
 
       <p class="panel-title">錬成陣に入れたもの</p>
-
       <div class="selected-list" id="selectedList"></div>
+
+      <p class="panel-title item-title">アイテム一覧</p>
+      <div class="item-layer" id="itemLayer"></div>
 
       <button class="main-btn" id="alchemyBtn">錬成する</button>
       <button class="sub-btn" id="resetBtn">リセット</button>
@@ -49,18 +47,11 @@
   <div class="modal hidden" id="resultModal">
     <div class="modal-card">
       <button class="close-btn" id="closeModal">×</button>
-
       <p class="result-label">錬成結果</p>
-
       <h2 id="resultTitle"></h2>
-
       <div class="result-visual" id="resultVisual"></div>
-
       <p id="resultText"></p>
-
-      <button class="main-btn hidden" id="letterBtn">
-        手紙を読む
-      </button>
+      <button class="main-btn hidden" id="letterBtn">手紙を読む</button>
     </div>
   </div>
 
