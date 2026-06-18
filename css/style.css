@@ -77,8 +77,8 @@ body {
 .alchemy-circle {
   position: absolute;
 
-  width: min(64vw, 270px);
-  height: min(64vw, 270px);
+  width: min(60vw, 270px);
+  height: min(60vw, 270px);
 
   left: 50%;
   top: 51%;
