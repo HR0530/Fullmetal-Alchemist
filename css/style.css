@@ -274,3 +274,37 @@ body {
     filter: drop-shadow(0 0 28px #fff0a0);
   }
 }
+
+.item.holding {
+  transform: scale(1.15);
+  filter:
+    drop-shadow(0 0 8px #ffe6a0)
+    drop-shadow(0 4px 6px rgba(0,0,0,.8));
+}
+
+.item.used {
+  opacity: 0.35;
+}
+
+.toast {
+  position: fixed;
+  z-index: 200;
+  left: 50%;
+  bottom: 170px;
+  transform: translateX(-50%) translateY(20px);
+  background: rgba(20, 12, 6, .92);
+  color: #f8ead0;
+  border: 1px solid #b99b67;
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-size: 15px;
+  opacity: 0;
+  pointer-events: none;
+  transition: .25s;
+  white-space: nowrap;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
