@@ -17,13 +17,14 @@ body {
   max-width: 480px;
   margin: 0 auto;
   background:
-    linear-gradient(rgba(0,0,0,.15), rgba(0,0,0,.65)),
+    linear-gradient(rgba(0,0,0,.12), rgba(0,0,0,.68)),
     url("../assets/background/room.jpg");
   background-size: cover;
   background-position: center;
   overflow: hidden;
 }
 
+/* 上部UI */
 .top-ui {
   position: absolute;
   z-index: 20;
@@ -43,7 +44,7 @@ body {
   background: linear-gradient(#efd8aa, #bd9356);
   border: 3px solid #6b4b2c;
   padding: 12px 8px;
-  font-size: 18px;
+  font-size: 17px;
   font-weight: bold;
   line-height: 1.45;
   box-shadow: 0 5px 14px rgba(0,0,0,.55);
@@ -65,6 +66,7 @@ body {
   font-size: 11px;
 }
 
+/* 部屋・魔方陣 */
 .room {
   position: absolute;
   inset: 0;
@@ -72,10 +74,10 @@ body {
 
 .alchemy-circle {
   position: absolute;
-  width: min(82vw, 390px);
-  height: min(82vw, 390px);
+  width: min(76vw, 350px);
+  height: min(76vw, 350px);
   left: 50%;
-  top: 39%;
+  top: 38%;
   transform: translate(-50%, -50%);
   border: 3px solid rgba(235, 217, 170, .78);
   border-radius: 50%;
@@ -113,7 +115,7 @@ body {
   place-items: center;
   color: rgba(255,255,255,.5);
   background: rgba(0,0,0,.24);
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .drop-zone.flash {
@@ -121,11 +123,18 @@ body {
 }
 
 @keyframes circleFlash {
-  0% { box-shadow: 0 0 0 rgba(255,230,160,0); }
-  50% { box-shadow: 0 0 28px rgba(255,230,160,.9); }
-  100% { box-shadow: 0 0 0 rgba(255,230,160,0); }
+  0% {
+    box-shadow: 0 0 0 rgba(255,230,160,0);
+  }
+  50% {
+    box-shadow: 0 0 28px rgba(255,230,160,.9);
+  }
+  100% {
+    box-shadow: 0 0 0 rgba(255,230,160,0);
+  }
 }
 
+/* 下部UI */
 .bottom-ui {
   position: absolute;
   z-index: 30;
@@ -136,7 +145,7 @@ body {
 
 .panel-title {
   margin: 0 0 5px;
-  font-size: 13px;
+  font-size: 12px;
   color: #e8d6ad;
 }
 
@@ -144,8 +153,9 @@ body {
   margin-top: 8px;
 }
 
+/* 錬成陣に入れたもの */
 .selected-list {
-  min-height: 44px;
+  min-height: 42px;
   padding: 7px;
   border: 1px solid rgba(220,190,130,.55);
   background: rgba(0,0,0,.58);
@@ -156,50 +166,74 @@ body {
 }
 
 .chip {
-  font-size: 13px;
+  font-size: 12px;
   padding: 5px 10px;
   background: #27190f;
   border: 1px solid #9c7947;
   border-radius: 999px;
 }
 
+/* アイテム一覧 */
 .item-layer {
   position: relative;
-  height: 92px;
-  padding: 8px;
-  border: 1px solid rgba(220,190,130,.45);
-  background: rgba(0,0,0,.65);
+  height: 118px;
+  padding: 10px 8px;
+  border: 1px solid rgba(220,190,130,.55);
+  background: rgba(0,0,0,.72);
   border-radius: 12px;
-  display: flex;
-  gap: 12px;
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(2, 1fr);
+  grid-auto-columns: 72px;
+  gap: 8px 10px;
   overflow-x: auto;
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
+}
+
+.item-layer::-webkit-scrollbar {
+  height: 5px;
+}
+
+.item-layer::-webkit-scrollbar-track {
+  background: rgba(255,255,255,.08);
+}
+
+.item-layer::-webkit-scrollbar-thumb {
+  background: rgba(198,164,110,.6);
+  border-radius: 999px;
 }
 
 .item {
   position: relative;
   left: auto !important;
   top: auto !important;
-  width: 70px;
-  min-width: 70px;
+  width: 72px;
+  min-width: 72px;
+  height: 48px;
   text-align: center;
   cursor: pointer;
   user-select: none;
+  display: grid;
+  place-items: center;
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,.75));
 }
 
 .item .emoji {
-  font-size: 34px;
-  line-height: 40px;
+  font-size: 30px;
+  line-height: 30px;
 }
 
 .item span {
-  display: inline-block;
-  padding: 2px 5px;
-  font-size: 11px;
-  line-height: 1.2;
-  background: rgba(0,0,0,.62);
+  display: block;
+  width: 68px;
+  margin-top: -2px;
+  padding: 1px 3px;
+  font-size: 10px;
+  line-height: 1.15;
+  background: rgba(0,0,0,.7);
   border: 1px solid rgba(220,190,130,.45);
+  white-space: normal;
 }
 
 .item.absorbing {
@@ -225,33 +259,36 @@ body {
 }
 
 .item.used {
-  opacity: .28;
+  opacity: .25;
   pointer-events: none;
+  filter: grayscale(1);
 }
 
+/* ボタン */
 .main-btn {
   width: 100%;
-  height: 58px;
-  margin-top: 10px;
+  height: 54px;
+  margin-top: 8px;
   border: 2px solid #c6a46e;
   color: #f5ead8;
   background: linear-gradient(#3b2918, #130d08);
-  font-size: 30px;
+  font-size: 28px;
   font-family: inherit;
   letter-spacing: .12em;
 }
 
 .sub-btn {
   width: 100%;
-  height: 38px;
-  margin-top: 8px;
+  height: 34px;
+  margin-top: 6px;
   border: 1px solid #c6a46e;
   color: #f5ead8;
   background: rgba(0,0,0,.7);
-  font-size: 17px;
+  font-size: 15px;
   font-family: inherit;
 }
 
+/* 結果モーダル */
 .modal {
   position: fixed;
   inset: 0;
@@ -309,21 +346,35 @@ body {
 }
 
 @keyframes shake {
-  0%, 100% { transform: translateX(0); }
-  25% { transform: translateX(-6px); }
-  75% { transform: translateX(6px); }
+  0%, 100% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(-6px);
+  }
+
+  75% {
+    transform: translateX(6px);
+  }
 }
 
 @keyframes glow {
-  from { filter: drop-shadow(0 0 5px #d8b15a); }
-  to { filter: drop-shadow(0 0 28px #fff0a0); }
+  from {
+    filter: drop-shadow(0 0 5px #d8b15a);
+  }
+
+  to {
+    filter: drop-shadow(0 0 28px #fff0a0);
+  }
 }
 
+/* トースト */
 .toast {
   position: fixed;
   z-index: 200;
   left: 50%;
-  bottom: 170px;
+  bottom: 205px;
   transform: translateX(-50%) translateY(20px);
   background: rgba(20,12,6,.92);
   color: #f8ead0;
