@@ -12,7 +12,6 @@ const resultVisual = document.getElementById("resultVisual");
 const letterBtn = document.getElementById("letterBtn");
 
 let selected = [];
-let holdingItemId = null;
 
 function renderItems() {
   ITEMS.forEach(item => {
@@ -30,39 +29,14 @@ function renderItems() {
     `;
 
     el.addEventListener("click", () => {
-      holdItem(item.id);
+      absorbItem(item.id, el);
     });
 
     itemLayer.appendChild(el);
   });
 }
 
-function holdItem(id) {
-  holdingItemId = id;
-
-  document.querySelectorAll(".item").forEach(el => {
-    el.classList.remove("holding");
-  });
-
-  const target = document.querySelector(`.item[data-id="${id}"]`);
-  if (target) {
-    target.classList.add("holding");
-  }
-
-  const item = ITEMS.find(item => item.id === id);
-  showToast(`${item.name}を持ちました`);
-}
-
-dropZone.addEventListener("click", () => {
-  if (!holdingItemId) {
-    showToast("先にアイテムを選んでください");
-    return;
-  }
-
-  addItemToCircle(holdingItemId);
-});
-
-function addItemToCircle(id) {
+function absorbItem(id, element) {
   if (selected.includes(id)) {
     const item = ITEMS.find(item => item.id === id);
     showToast(`${item.name}はすでに入っています`);
@@ -71,22 +45,36 @@ function addItemToCircle(id) {
 
   const item = ITEMS.find(item => item.id === id);
 
-  if (!item) {
-    return;
-  }
+  const circleRect = dropZone.getBoundingClientRect();
+  const itemRect = element.getBoundingClientRect();
 
-  selected.push(id);
-  updateSelected();
+  const moveX =
+    circleRect.left + circleRect.width / 2 -
+    (itemRect.left + itemRect.width / 2);
 
-  showToast(`${item.name}が入りました`);
+  const moveY =
+    circleRect.top + circleRect.height / 2 -
+    (itemRect.top + itemRect.height / 2);
 
-  const target = document.querySelector(`.item[data-id="${id}"]`);
-  if (target) {
-    target.classList.add("used");
-    target.classList.remove("holding");
-  }
+  element.style.setProperty("--move-x", `${moveX}px`);
+  element.style.setProperty("--move-y", `${moveY}px`);
 
-  holdingItemId = null;
+  element.classList.add("absorbing");
+  dropZone.classList.add("flash");
+
+  setTimeout(() => {
+    dropZone.classList.remove("flash");
+  }, 450);
+
+  setTimeout(() => {
+    selected.push(id);
+    updateSelected();
+
+    element.classList.remove("absorbing");
+    element.classList.add("used");
+
+    showToast(`${item.name}が入りました`);
+  }, 650);
 }
 
 function updateSelected() {
@@ -185,11 +173,10 @@ function showResult(recipe) {
 
 function resetSelected() {
   selected = [];
-  holdingItemId = null;
 
   document.querySelectorAll(".item").forEach(el => {
     el.classList.remove("used");
-    el.classList.remove("holding");
+    el.classList.remove("absorbing");
   });
 
   updateSelected();
