@@ -2,131 +2,131 @@ const ITEMS = [
   {
     id: "milk",
     name: "牛乳",
-    emoji: "🥛"
+    image: "assets/items/milk.png"
   },
   {
     id: "wheat",
     name: "小麦",
-    emoji: "🌾"
+    image: "assets/items/wheat.png"
   },
   {
     id: "egg",
     name: "卵",
-    emoji: "🥚"
+    image: "assets/items/egg.png"
   },
   {
     id: "sugar",
     name: "砂糖",
-    emoji: "🧂"
+    image: "assets/items/sugar.png"
   },
   {
     id: "strawberry",
     name: "イチゴ",
-    emoji: "🍓"
+    image: "assets/items/strawberry.png"
   },
 
   {
     id: "water",
     name: "コップの水",
-    emoji: "💧"
+    image: "assets/items/water.png"
   },
   {
     id: "pencil",
     name: "えんぴつ",
-    emoji: "✏️"
+    image: "assets/items/pencil.png"
   },
   {
     id: "detergent",
     name: "洗剤",
-    emoji: "🧴"
+    image: "assets/items/detergent.png"
   },
   {
     id: "chalk",
     name: "チョーク",
-    emoji: "▭"
+    image: "assets/items/chalk.png"
   },
   {
     id: "match",
     name: "マッチ",
-    emoji: "🔥"
+    image: "assets/items/match.png"
   },
   {
     id: "salt",
     name: "塩",
-    emoji: "🧂"
+    image: "assets/items/salt.png"
   },
   {
     id: "firework",
     name: "花火",
-    emoji: "🎆"
+    image: "assets/items/firework.png"
   },
   {
     id: "bath",
     name: "温泉の素",
-    emoji: "♨️"
+    image: "assets/items/bath.png"
   },
   {
     id: "toothpaste",
     name: "歯磨き粉",
-    emoji: "🪥"
+    image: "assets/items/toothpaste.png"
   },
   {
     id: "nail",
     name: "釘",
-    emoji: "🔩"
+    image: "assets/items/nail.png"
   },
   {
     id: "cpu",
     name: "CPU",
-    emoji: "💾"
+    image: "assets/items/cpu.png"
   },
   {
     id: "elements",
     name: "少量元素",
-    emoji: "🪙"
+    image: "assets/items/elements.png"
   },
 
   {
     id: "dog",
     name: "犬のぬいぐるみ",
-    emoji: "🧸"
+    image: "assets/items/dog.png"
   },
   {
     id: "girl_photo",
     name: "少女の写真",
-    emoji: "🖼️"
+    image: "assets/items/girl_photo.png"
   },
 
   {
     id: "screw",
     name: "ネジ",
-    emoji: "🔩"
+    image: "assets/items/screw.png"
   },
   {
     id: "gear",
     name: "歯車",
-    emoji: "⚙️"
+    image: "assets/items/gear.png"
   },
   {
     id: "metal",
     name: "金属板",
-    emoji: "◼️"
+    image: "assets/items/metal.png"
   },
 
   {
     id: "redstone1",
     name: "赤い石",
-    emoji: "💎"
+    image: "assets/items/redstone.png"
   },
   {
     id: "redstone2",
     name: "赤い石",
-    emoji: "💎"
+    image: "assets/items/redstone.png"
   },
   {
     id: "redstone3",
     name: "赤い石",
-    emoji: "💎"
+    image: "assets/items/redstone.png"
   }
 ];
 
