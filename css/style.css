@@ -77,10 +77,10 @@ body {
 
 .alchemy-circle {
   position: absolute;
-  width: min(82vw, 330px);
-  height: min(82vw, 330px);
+  width: min(76vw, 310px);
+  height: min(76vw, 310px);
   left: 50%;
-  top: 34%;
+  top: 33%;
   transform: translate(-50%, -50%);
   border: 3px solid rgba(235,217,170,.82);
   border-radius: 50%;
@@ -136,8 +136,8 @@ body {
 .bottom-ui {
   position: absolute;
   z-index: 40;
-  left: 10px;
-  right: 10px;
+  left: 12px;
+  right: 12px;
   bottom: max(8px, env(safe-area-inset-bottom));
 }
 
@@ -154,8 +154,8 @@ body {
 
 /* 投入済み */
 .selected-list {
-  min-height: 36px;
-  max-height: 52px;
+  min-height: 42px;
+  max-height: 50px;
   padding: 6px;
   border: 1px solid rgba(220,190,130,.58);
   background: rgba(0,0,0,.62);
@@ -178,59 +178,66 @@ body {
 
 /* アイテム棚 */
 .item-layer {
-  height: 122px;
-  padding: 9px 8px;
+  height: 128px;
+  padding: 10px;
   border: 1px solid rgba(220,190,130,.58);
   background: rgba(0,0,0,.74);
   border-radius: 11px;
   display: grid;
   grid-auto-flow: column;
-  grid-template-rows: repeat(2, 1fr);
-  grid-auto-columns: 66px;
-  gap: 8px 10px;
+  grid-template-rows: repeat(2, 54px);
+  grid-auto-columns: 82px;
+  gap: 10px 12px;
   overflow-x: auto;
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
   backdrop-filter: blur(3px);
 }
 
-.item-layer {
-  height: 150px;
-  padding: 10px 8px;
-  border: 1px solid rgba(220,190,130,.58);
-  background: rgba(0,0,0,.74);
-  border-radius: 11px;
+.item-layer::-webkit-scrollbar {
+  height: 4px;
+}
 
-  display: grid;
-  grid-auto-flow: column;
-  grid-template-rows: repeat(2, 64px);
-  grid-auto-columns: 66px;
-  gap: 8px 10px;
-
-  overflow-x: auto;
-  overflow-y: hidden;
-  -webkit-overflow-scrolling: touch;
+.item-layer::-webkit-scrollbar-thumb {
+  background: rgba(198,164,110,.65);
+  border-radius: 999px;
 }
 
 .item {
-  width: 66px;
-  min-width: 66px;
-  height: 64px;
+  position: relative;
+  left: auto !important;
+  top: auto !important;
+  width: 82px;
+  min-width: 82px;
+  height: 54px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  cursor: pointer;
+  user-select: none;
 }
 
 .item-image {
-  width: 40px;
-  height: 40px;
+  width: 38px;
+  height: 38px;
   object-fit: contain;
   pointer-events: none;
+  filter: drop-shadow(0 3px 5px rgba(0,0,0,.75));
 }
 
 .item span {
-  width: 64px;
+  display: block;
+  width: 78px;
   margin-top: 3px;
   padding: 1px 3px;
-  font-size: 9px;
-  line-height: 1.15;
+  font-size: 10px;
+  line-height: 1.2;
+  text-align: center;
+  color: #f4ead7;
+  background: rgba(0,0,0,.76);
+  border: 1px solid rgba(220,190,130,.45);
+  white-space: normal;
 }
 
 .item.absorbing {
@@ -262,12 +269,12 @@ body {
 /* ボタン */
 .main-btn {
   width: 100%;
-  height: 50px;
+  height: 48px;
   margin-top: 7px;
   border: 2px solid #c6a46e;
   color: #f5ead8;
   background: linear-gradient(#3b2918, #130d08);
-  font-size: 25px;
+  font-size: 24px;
   font-family: inherit;
   letter-spacing: .12em;
   box-shadow: 0 3px 10px rgba(0,0,0,.45);
@@ -275,12 +282,12 @@ body {
 
 .sub-btn {
   width: 100%;
-  height: 31px;
+  height: 30px;
   margin-top: 5px;
   border: 1px solid #c6a46e;
   color: #f5ead8;
   background: rgba(0,0,0,.72);
-  font-size: 14px;
+  font-size: 13px;
   font-family: inherit;
 }
 
@@ -300,28 +307,16 @@ body {
 }
 
 .modal-card {
+  position: relative;
   width: min(94vw, 410px);
   min-height: 520px;
   max-height: 94dvh;
-}
-
-.result-visual {
-  min-height: 350px;
-  display: grid;
-  place-items: center;
-  margin: 12px 0;
-  font-size: 100px;
-}
-
-.result-image {
-  width: 100%;
-  max-width: 360px;
-  max-height: 360px;
-  object-fit: contain;
-  border-radius: 12px;
-  box-shadow:
-    0 0 24px rgba(255,255,255,.18),
-    0 0 48px rgba(255,215,120,.18);
+  overflow-y: auto;
+  background: linear-gradient(#20160f, #080605);
+  border: 2px solid #b99b67;
+  box-shadow: 0 0 40px rgba(214,174,80,.28);
+  padding: 24px 16px;
+  text-align: center;
 }
 
 .close-btn {
@@ -340,6 +335,24 @@ body {
   margin: 0 0 8px;
 }
 
+.result-visual {
+  min-height: 340px;
+  display: grid;
+  place-items: center;
+  margin: 12px 0;
+  font-size: 100px;
+}
+
+.result-image {
+  width: 100%;
+  max-width: 350px;
+  max-height: 350px;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow:
+    0 0 24px rgba(255,255,255,.18),
+    0 0 48px rgba(255,215,120,.18);
+}
 
 .shake {
   animation: shake .45s linear infinite;
@@ -507,24 +520,37 @@ body {
 /* 小さいスマホ用 */
 @media (max-height: 760px) {
   .alchemy-circle {
-    width: min(76vw, 300px);
-    height: min(76vw, 300px);
-    top: 33%;
+    width: min(72vw, 285px);
+    height: min(72vw, 285px);
+    top: 31%;
+  }
+
+  .selected-list {
+    min-height: 34px;
+    max-height: 42px;
   }
 
   .item-layer {
-    height: 108px;
-    grid-auto-columns: 62px;
+    height: 116px;
+    grid-template-rows: repeat(2, 49px);
+    grid-auto-columns: 76px;
+    gap: 8px 10px;
   }
 
   .item {
-    width: 62px;
-    min-width: 62px;
+    width: 76px;
+    min-width: 76px;
+    height: 49px;
   }
 
   .item-image {
-    width: 35px;
-    height: 35px;
+    width: 34px;
+    height: 34px;
+  }
+
+  .item span {
+    width: 72px;
+    font-size: 9px;
   }
 
   .main-btn {
