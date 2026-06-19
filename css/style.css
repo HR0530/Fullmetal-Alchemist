@@ -581,9 +581,9 @@ body {
 /* 小さいスマホ用 */
 @media (max-height: 760px) {
   .alchemy-circle {
-    width: min(68vw, 270px);
-    height: min(68vw, 270px);
-    top: 29%;
+    width: min(46vw, 190px);
+    height: min(46vw, 190px);
+    top: 60%;
   }
 
   .selected-list {
