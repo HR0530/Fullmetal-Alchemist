@@ -27,7 +27,10 @@ body {
   overflow: hidden;
 }
 
-/* 上部 */
+/* =========================
+   上部UI
+========================= */
+
 .top-ui {
   position: absolute;
   z-index: 30;
@@ -70,9 +73,9 @@ body {
 }
 
 /* =========================
-   魔方陣
+   魔方陣エリア
+   白枠内に収まる位置
 ========================= */
-
 
 .room {
   position: absolute;
@@ -82,20 +85,20 @@ body {
 .alchemy-circle {
   position: absolute;
 
-  width: min(38vw, 160px);
-  height: min(38vw, 160px);
+  width: min(62vw, 260px);
+  height: min(62vw, 260px);
 
   left: 50%;
-  top: 49%;
+  top: 39%;
 
   transform: translate(-50%, -50%);
 
-  border: 2px solid rgba(235,217,170,.82);
+  border: 3px solid rgba(235,217,170,.82);
   border-radius: 50%;
 
   box-shadow:
-    0 0 18px rgba(224,194,122,.28),
-    inset 0 0 18px rgba(224,194,122,.12);
+    0 0 26px rgba(224,194,122,.32),
+    inset 0 0 35px rgba(224,194,122,.16);
 }
 
 .alchemy-circle::before {
@@ -103,7 +106,7 @@ body {
   position: absolute;
   inset: 15%;
   border-radius: 50%;
-  border: 1px solid rgba(235,217,170,.55);
+  border: 1px solid rgba(235,217,170,.58);
 }
 
 .alchemy-circle::after {
@@ -111,7 +114,7 @@ body {
   position: absolute;
   inset: 34%;
   border-radius: 50%;
-  border: 1px dashed rgba(235,217,170,.48);
+  border: 1px dashed rgba(235,217,170,.5);
 }
 
 .drop-zone {
@@ -126,7 +129,7 @@ body {
   transform: translate(-50%, -50%);
 
   border-radius: 50%;
-  border: 1px dashed rgba(255,255,255,.22);
+  border: 1px dashed rgba(255,255,255,.24);
 
   display: flex;
   align-items: center;
@@ -135,10 +138,12 @@ body {
   text-align: center;
   color: rgba(255,255,255,.75);
 
-  background: rgba(0,0,0,.16);
+  background: rgba(0,0,0,.18);
 
-  font-size: 12px;
+  font-size: 13px;
   line-height: 1.3;
+
+  transition: .3s;
 }
 
 .drop-zone.flash {
@@ -180,29 +185,10 @@ body {
   }
 }
 
-/* 錬成中発光 */
-.alchemy-circle.glow {
-  animation: alchemyGlow 1s ease-in-out infinite alternate;
-}
+/* =========================
+   下部UI
+========================= */
 
-@keyframes alchemyGlow {
-
-  from {
-    box-shadow:
-      0 0 20px rgba(224,194,122,.4),
-      inset 0 0 25px rgba(224,194,122,.15);
-  }
-
-  to {
-    box-shadow:
-      0 0 60px rgba(255,235,180,.95),
-      0 0 120px rgba(255,235,180,.5),
-      inset 0 0 40px rgba(255,235,180,.35);
-  }
-
-}
-
-/* 下部UI */
 .bottom-ui {
   position: absolute;
   z-index: 40;
@@ -246,18 +232,23 @@ body {
   white-space: nowrap;
 }
 
-/* アイテム棚 */
+/* =========================
+   アイテム一覧
+========================= */
+
 .item-layer {
   height: 160px;
   padding: 12px;
   border: 1px solid rgba(220,190,130,.58);
   background: rgba(0,0,0,.74);
   border-radius: 12px;
+
   display: grid;
   grid-auto-flow: column;
   grid-template-rows: repeat(2, 68px);
   grid-auto-columns: 88px;
   gap: 12px;
+
   overflow-x: auto;
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
@@ -277,13 +268,16 @@ body {
   position: relative;
   left: auto !important;
   top: auto !important;
+
   width: 88px;
   min-width: 88px;
   height: 68px;
+
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+
   cursor: pointer;
   user-select: none;
 }
@@ -331,10 +325,12 @@ body {
     transform: translate(0, 0) scale(1);
     opacity: 1;
   }
+
   70% {
     transform: translate(var(--move-x), var(--move-y)) scale(.45);
     opacity: 1;
   }
+
   100% {
     transform: translate(var(--move-x), var(--move-y)) scale(.1);
     opacity: 0;
@@ -347,7 +343,10 @@ body {
   filter: grayscale(1);
 }
 
-/* ボタン */
+/* =========================
+   ボタン
+========================= */
+
 .main-btn {
   width: 100%;
   height: 48px;
@@ -372,7 +371,10 @@ body {
   font-family: inherit;
 }
 
-/* 結果モーダル */
+/* =========================
+   結果モーダル
+========================= */
+
 .modal {
   position: fixed;
   inset: 0;
@@ -454,7 +456,10 @@ body {
   to { filter: drop-shadow(0 0 28px #fff0a0); }
 }
 
-/* 雷エフェクト */
+/* =========================
+   雷エフェクト
+========================= */
+
 .effect-layer {
   position: fixed;
   inset: 0;
@@ -565,16 +570,21 @@ body {
     opacity: 0;
     transform: translate(-50%, -50%) scale(.25);
   }
+
   35% {
     opacity: .85;
   }
+
   100% {
     opacity: 0;
     transform: translate(-50%, -50%) scale(1.35);
   }
 }
 
-/* トースト */
+/* =========================
+   トースト
+========================= */
+
 .toast {
   position: fixed;
   z-index: 200;
@@ -598,18 +608,21 @@ body {
   transform: translateX(-50%) translateY(0);
 }
 
-/* 小さいスマホ用 */
+/* =========================
+   小さいスマホ用
+========================= */
+
 @media (max-height: 760px) {
   .alchemy-circle {
-    width: min(38vw, 160px);
-    height: min(38vw, 160px);
-    top: 49%;
+    width: min(58vw, 240px);
+    height: min(58vw, 240px);
+    top: 39%;
   }
 
   .drop-zone {
     top: 50%;
   }
-}
+
   .selected-list {
     min-height: 34px;
     max-height: 40px;
@@ -647,5 +660,3 @@ body {
     height: 29px;
   }
 }
-
-
