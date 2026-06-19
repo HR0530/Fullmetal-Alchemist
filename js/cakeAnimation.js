@@ -10,13 +10,15 @@ function playCakeAnimation(recipe, done) {
   }, 700);
 
   setTimeout(() => {
-    dropText.textContent = "完成";
+    dropText.textContent = "誕生日ケーキを錬成中...";
   }, 1400);
 
   setTimeout(() => {
-    circle.classList.remove("glow");
-    dropText.textContent = "ここに置く";
+    dropText.textContent = "錬成成功";
+  }, 2100);
 
+  setTimeout(() => {
+    circle.classList.remove("glow");
     done(recipe);
-  }, 2200);
+  }, 2800);
 }
