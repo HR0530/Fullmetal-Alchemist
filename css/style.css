@@ -616,7 +616,7 @@ body {
   .alchemy-circle {
     width: min(58vw, 240px);
     height: min(58vw, 240px);
-    top: 39%;
+    top: 33%;
   }
 
   .drop-zone {
