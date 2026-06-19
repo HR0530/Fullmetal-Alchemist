@@ -73,14 +73,20 @@ body {
    魔方陣
 ========================= */
 
+
+.room {
+  position: absolute;
+  inset: 0;
+}
+
 .alchemy-circle {
   position: absolute;
 
-  width: min(46vw, 190px);
-  height: min(46vw, 190px);
+  width: min(38vw, 160px);
+  height: min(38vw, 160px);
 
   left: 50%;
-  top: 60%;
+  top: 49%;
 
   transform: translate(-50%, -50%);
 
@@ -88,29 +94,26 @@ body {
   border-radius: 50%;
 
   box-shadow:
-    0 0 18px rgba(224,194,122,.25),
-    inset 0 0 18px rgba(224,194,122,.10);
+    0 0 18px rgba(224,194,122,.28),
+    inset 0 0 18px rgba(224,194,122,.12);
 }
 
-/* 中円 */
 .alchemy-circle::before {
   content: "";
   position: absolute;
-  inset: 16%;
+  inset: 15%;
   border-radius: 50%;
-  border: 1px solid rgba(235,217,170,.50);
+  border: 1px solid rgba(235,217,170,.55);
 }
 
-/* 小円 */
 .alchemy-circle::after {
   content: "";
   position: absolute;
   inset: 34%;
   border-radius: 50%;
-  border: 1px dashed rgba(235,217,170,.45);
+  border: 1px dashed rgba(235,217,170,.48);
 }
 
-/* 投入エリア */
 .drop-zone {
   position: absolute;
 
@@ -123,7 +126,7 @@ body {
   transform: translate(-50%, -50%);
 
   border-radius: 50%;
-  border: 1px dashed rgba(255,255,255,.20);
+  border: 1px dashed rgba(255,255,255,.22);
 
   display: flex;
   align-items: center;
@@ -132,18 +135,17 @@ body {
   text-align: center;
   color: rgba(255,255,255,.75);
 
-  background: rgba(0,0,0,.15);
+  background: rgba(0,0,0,.16);
 
-  font-size: 13px;
+  font-size: 12px;
+  line-height: 1.3;
 }
-/* アイテム投入時 */
+
 .drop-zone.flash {
   animation: circleFlash .45s ease-out;
 }
 
-/* 発光 */
 @keyframes circleFlash {
-
   0% {
     box-shadow: 0 0 0 rgba(255,230,160,0);
   }
@@ -157,7 +159,25 @@ body {
   100% {
     box-shadow: 0 0 0 rgba(255,230,160,0);
   }
+}
 
+.alchemy-circle.glow {
+  animation: alchemyGlow 1s ease-in-out infinite alternate;
+}
+
+@keyframes alchemyGlow {
+  from {
+    box-shadow:
+      0 0 20px rgba(224,194,122,.4),
+      inset 0 0 25px rgba(224,194,122,.15);
+  }
+
+  to {
+    box-shadow:
+      0 0 60px rgba(255,235,180,.95),
+      0 0 120px rgba(255,235,180,.5),
+      inset 0 0 40px rgba(255,235,180,.35);
+  }
 }
 
 /* 錬成中発光 */
@@ -581,11 +601,15 @@ body {
 /* 小さいスマホ用 */
 @media (max-height: 760px) {
   .alchemy-circle {
-    width: min(46vw, 190px);
-    height: min(46vw, 190px);
-    top: 60%;
+    width: min(38vw, 160px);
+    height: min(38vw, 160px);
+    top: 49%;
   }
 
+  .drop-zone {
+    top: 50%;
+  }
+}
   .selected-list {
     min-height: 34px;
     max-height: 40px;
@@ -624,81 +648,4 @@ body {
   }
 }
 
-/* =========================
-   魔方陣 最終調整
-========================= */
 
-.alchemy-circle {
-  position: absolute;
-
-  width: min(42vw, 175px) !important;
-  height: min(42vw, 175px) !important;
-
-  left: 50% !important;
-  top: 53% !important;
-
-  transform: translate(-50%, -50%) !important;
-
-  border: 2px solid rgba(235,217,170,.82);
-  border-radius: 50%;
-
-  box-shadow:
-    0 0 18px rgba(224,194,122,.28),
-    inset 0 0 18px rgba(224,194,122,.12);
-}
-
-.alchemy-circle::before {
-  content: "";
-  position: absolute;
-  inset: 15%;
-  border-radius: 50%;
-  border: 1px solid rgba(235,217,170,.55);
-}
-
-.alchemy-circle::after {
-  content: "";
-  position: absolute;
-  inset: 34%;
-  border-radius: 50%;
-  border: 1px dashed rgba(235,217,170,.48);
-}
-
-.drop-zone {
-  position: absolute;
-
-  width: 44%;
-  height: 44%;
-
-  left: 50%;
-  top: 50%;
-
-  transform: translate(-50%, -50%);
-
-  border-radius: 50%;
-  border: 1px dashed rgba(255,255,255,.22);
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  text-align: center;
-  color: rgba(255,255,255,.75);
-
-  background: rgba(0,0,0,.16);
-
-  font-size: 12px;
-  line-height: 1.3;
-}
-
-/* 小さいスマホでも同じ見え方に固定 */
-@media (max-height: 760px) {
-  .alchemy-circle {
-    width: min(42vw, 175px) !important;
-    height: min(42vw, 175px) !important;
-    top: 53% !important;
-  }
-
-  .drop-zone {
-    top: 50%;
-  }
-}
